@@ -314,4 +314,107 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroStats = document.querySelector('.hero-stats');
   if (heroStats) statsObserver.observe(heroStats);
 
+
+  // =============================================
+  // SCROLL PROGRESS BAR
+  // =============================================
+  const scrollProgress = document.getElementById('scrollProgress');
+
+  window.addEventListener('scroll', () => {
+    if (!scrollProgress) return;
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    scrollProgress.style.width = progress + '%';
+  }, { passive: true });
+
+
+  // =============================================
+  // TYPEWRITER EFFECT — HERO
+  // =============================================
+  const typewriterEl = document.getElementById('heroTypewriter');
+  const typewriterText = 'Corporate & Criminal Attorney — Delivering strategic legal solutions with integrity, precision, and an unwavering commitment to justice.';
+
+  if (typewriterEl) {
+    let charIndex = 0;
+
+    function typeChar() {
+      if (charIndex < typewriterText.length) {
+        typewriterEl.textContent += typewriterText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeChar, 22);
+      } else {
+        // Stop blinking cursor after done
+        setTimeout(() => typewriterEl.classList.add('done'), 2000);
+      }
+    }
+
+    // Start after preloader finishes
+    setTimeout(typeChar, 2800);
+  }
+
+
+  // =============================================
+  // FLOATING GOLD PARTICLES — HERO
+  // =============================================
+  const particlesContainer = document.getElementById('heroParticles');
+
+  if (particlesContainer) {
+    function createParticle() {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+
+      // Random properties
+      const size = Math.random() * 4 + 2;
+      const left = Math.random() * 100;
+      const duration = Math.random() * 6 + 6;
+      const delay = Math.random() * 4;
+
+      particle.style.width = size + 'px';
+      particle.style.height = size + 'px';
+      particle.style.left = left + '%';
+      particle.style.bottom = '-10px';
+      particle.style.animationDuration = duration + 's';
+      particle.style.animationDelay = delay + 's';
+
+      // Random gold shade
+      const goldShades = [
+        'rgba(201, 169, 110, 0.7)',
+        'rgba(212, 185, 126, 0.5)',
+        'rgba(201, 169, 110, 0.4)',
+        'rgba(255, 215, 0, 0.3)'
+      ];
+      particle.style.background = goldShades[Math.floor(Math.random() * goldShades.length)];
+      particle.style.boxShadow = `0 0 ${size * 2}px ${particle.style.background}`;
+
+      particlesContainer.appendChild(particle);
+
+      // Remove after animation
+      setTimeout(() => particle.remove(), (duration + delay) * 1000);
+    }
+
+    // Create particles periodically
+    setInterval(createParticle, 400);
+    // Create initial batch
+    for (let i = 0; i < 15; i++) {
+      setTimeout(createParticle, i * 200);
+    }
+  }
+
+
+  // =============================================
+  // BACK TO TOP BUTTON
+  // =============================================
+  const backToTop = document.getElementById('backToTop');
+
+  if (backToTop) {
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 600);
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
 });

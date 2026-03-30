@@ -43,6 +43,9 @@
   </div>
 
   <!-- NAVBAR -->
+  <!-- SCROLL PROGRESS BAR -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
   <nav id="navbar">
     <div class="container">
       <a href="#" class="logo">Abilkhoir<span>.</span></a>
@@ -63,11 +66,13 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
+    <!-- Gold Particles -->
+    <div class="hero-particles" id="heroParticles"></div>
     <div class="container">
       <div class="hero-content fade-in">
         <div class="hero-badge">⚖️ Trusted Legal Excellence</div>
         <h1>Hisyam<br /><span>Abilkhoir</span></h1>
-        <p>Corporate & Criminal Attorney — Delivering strategic legal solutions with integrity, precision, and an unwavering commitment to justice.</p>
+        <p class="typewriter" id="heroTypewriter"></p>
         <div class="hero-buttons">
           <a href="#contact" class="btn btn-gold">Book Consultation</a>
           <a href="#practice" class="btn btn-outline">Our Practice</a>
@@ -93,6 +98,11 @@
       </div>
     </div>
   </section>
+
+  <!-- WAVE DIVIDER -->
+  <div class="wave-divider">
+    <svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path fill="#ffffff" d="M0,40 C360,80 720,0 1080,40 C1260,60 1380,50 1440,40 L1440,80 L0,80 Z"/></svg>
+  </div>
 
   <!-- ABOUT -->
   <section class="section about" id="about">
@@ -297,6 +307,11 @@
 
   <!-- Hero cursor glow -->
   <div class="hero-glow" id="heroGlow"></div>
+
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="script.js"></script>
 </body>
