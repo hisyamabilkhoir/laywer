@@ -3,6 +3,18 @@
    Premium interactive features
    ============================================= */
 
+// ── Preloader ──
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) {
+    setTimeout(() => {
+      preloader.classList.add('hidden');
+      // Remove from DOM after transition
+      setTimeout(() => preloader.remove(), 600);
+    }, 2200);
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── Elements ──
